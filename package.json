@@ -1,0 +1,20 @@
+{
+  "name": "og-image-server",
+  "version": "1.0.0",
+  "description": "Easily create Open Graph images for your application or website.",
+  "main": "api/index.js",
+  "keywords": ["Open Graph", "Image", "Flowframe"],
+  "author": {
+    "name" : "Lars Klopstra",
+    "email" : "lars@flowframe.nl",
+    "url" : "https://flowfra.me"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^2.3.1"
+  },
+  "dependencies": {
+    "chrome-aws-lambda": "^10.0.0",
+    "puppeteer-core": "^10.0.0"
+  }
+}
