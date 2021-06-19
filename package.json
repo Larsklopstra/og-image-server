@@ -1,6 +1,6 @@
 {
   "name": "og-image-server",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "Easily create Open Graph images for your application or website.",
   "main": "api/index.js",
   "keywords": ["Open Graph", "Image", "Flowframe"],

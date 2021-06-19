@@ -3,7 +3,7 @@ const createPage = require('./createPage')
 module.exports = async function makeScreenshot(request) {
     const { payload, signature } = request.query
 
-    const decodedPayload = JSON.parse(decodeURIComponent(payload))
+    const decodedPayload = JSON.parse(Buffer.from(payload, 'base64').toString())
 
     const page = await createPage()
 

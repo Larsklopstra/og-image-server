@@ -6,15 +6,15 @@ module.exports = async (request, response) => {
         const authorized = await authorizeRequest(request)
 
         if (!authorized) {
-            response
-                .status(401)
+            return response
+                .status(400)
                 .setHeader('Content-Type', 'text/html')
                 .send('<h1>Invalid signature</h1>')
         }
 
         const screenshot = await makeScreenshot(request)
 
-        response
+        return response
             .status(200)
             .setHeader('Content-Type', 'image/png')
             .setHeader(
@@ -23,7 +23,9 @@ module.exports = async (request, response) => {
             )
             .send(screenshot)
     } catch (error) {
-        response
+        console.log(error)
+
+        return response
             .status(500)
             .setHeader('Content-Type', 'text/html')
             .send('<h1>Internal error</h1>')

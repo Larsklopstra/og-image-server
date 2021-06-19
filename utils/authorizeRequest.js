@@ -1,13 +1,11 @@
 const crypto = require('crypto')
 
 module.exports = async function authorizeRequest(request) {
-    const { signature, payload } = request.query
-
-    const decodedPayload = decodeURIComponent(payload)
+    const { payload, signature } = request.query
 
     const computedSignature = crypto
         .createHmac('sha256', process.env.SECRET_TOKEN)
-        .update(decodedPayload)
+        .update(payload)
         .digest('hex')
 
     return computedSignature === signature
